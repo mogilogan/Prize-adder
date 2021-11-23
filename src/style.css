@@ -1,0 +1,55 @@
+.mainrank{
+   
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    margin-top: 30px;
+    width: 80%;
+    
+  }
+  
+  .rank , .prize , .inr{
+    border: 1px solid black;
+    flex-basis: 33.33%;
+  }
+  
+  .mainrange{
+    display:flex;
+    margin-top: 15px;
+  }
+  
+  .mainrange p{
+    margin-left: 15px;
+  }
+  
+  .mainrange input{
+    height: 30px;
+    margin-left:10px
+  }
+  
+  
+  .mainAdv{
+  
+    display: flex;
+   flex-direction: column;
+  
+  }
+  
+  .mvp{
+   width: 100%;
+   display: flex;
+   margin: 10px;
+  }
+  
+  .mvp input{
+  margin: 10px ;
+  }
+  
+  
+  .card{
+    border: 1px solid black;
+    
+  }
+  
+  
+  
