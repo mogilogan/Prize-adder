@@ -119,7 +119,7 @@ const Advance = () => {
                   
 }
     return (
-        <>
+        <div>
          <section onChange={(e)=>{setmode(e.target.value)}} >
           <h4> Mode </h4>
             <input type="radio" value="Squad" name="mode" /> Squad
@@ -155,14 +155,14 @@ const Advance = () => {
         {
             printdata.map((ele , index)=>{
                     return (
-                        <>
+                        <div>
                       <div className="mainrank" key = {index}>
                      <div className="rank">   <p>Rank : {ele.rank} </p>  </div>
                        <div className="prize"> <p> prize:{ele.prize}  </p></div>
                        <div className="inr"> <p>inr :{ele.prize*2}</p>   </div>
                        <button onClick={()=>{deleteItem(index)}} > <i class="zmdi zmdi-delete"></i></button>
                       </div>
-                   </>
+                   </div>
 
                     )
             })
@@ -176,7 +176,7 @@ const Advance = () => {
         {
              printrange.map((ele , index)=>{
                 return (
-                    <>
+                    <div>
                   <div className="mainrank" key = {index}>
                  <div className="rank">   <p>Range : {ele.rangeto} </p>  </div>
                  <p>to</p>
@@ -186,7 +186,7 @@ const Advance = () => {
                    <button onClick={()=>{deleteItem2(index)}} > <i class="zmdi zmdi-delete"></i></button>
                    
                   </div>
-               </>
+               </div>
 
                 )
         })
@@ -306,7 +306,7 @@ const Advance = () => {
         
         
         
-        </>
+        </div>
     )
 }
 
