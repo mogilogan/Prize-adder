@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Advance_page from "./Advance"
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const Simple = () => {
     const[ method , setmethod ] = useState("")
@@ -106,7 +107,7 @@ const Simple = () => {
     }
         return (
            <div>
-             <>
+             
              <section onChange={(e) => { setmode(e.target.value) } }>
                 <h4> Mode </h4>
                 <input type="radio" value="Squad" name="mode" /> Squad
@@ -135,14 +136,14 @@ const Simple = () => {
             {
                 printdata.map((ele , index)=>{
                         return (
-                            <>
+                            
                           <div className="mainrank" key = {index}>
                          <div className="rank">   <p>Rank : {ele.rank} </p>  </div>
                            <div className="prize"> <p> prize:{ele.prize}  </p></div>
                            <div className="inr"> <p>inr :{ele.prize*2}</p>   </div>
-                           <button onClick={()=>{deleteItem(index)}} > <i class="zmdi zmdi-delete"></i></button>
+                           <button onClick={()=>{deleteItem(index)}} > <DeleteIcon fontSize="small" /></button>
                           </div>
-                       </>
+                       
 
                         )
                 })
@@ -156,22 +157,21 @@ const Simple = () => {
             {
                  printrange.map((ele , index)=>{
                     return (
-                        <>
+                        
                       <div className="mainrank" key = {index}>
                      <div className="rank">   <p>Range : {ele.rangeto} </p>  </div>
                      <p>to</p>
                      <div className="rank">   <p>  {ele.rangefrom} </p>  </div>
                        <div className="prize"> <p> prize:{ele.prize}  </p></div>
                        <div className="inr"> <p>inr :{ele.prize*2}</p>   </div>
-                       <button onClick={()=>{deleteItem2(index)}} > <i class="zmdi zmdi-delete"></i></button>
+                       <button onClick={()=>{deleteItem2(index)}} > <i class="fa fa-trash"></i></button>
                       </div>
-                   </>
-
+                   
                     )
             })
             }
             
-           </>
+        
            </div>
         )
     }
@@ -179,34 +179,32 @@ const Simple = () => {
 
     const Advance = ()=>{
         return (
-            <>
+            
           <Advance_page/>
-            </>
+        
         )
     }
 
     
     return (
-        <>
-            <label htmlFor=""> Select your price </label>
-
-          <div className="method">
-           <section onChange={(e)=>{setmethod(e.target.value)}} >
-              <h4> method </h4>
+        <div>
+            <label htmlFor=""> Select your price </label><div className="method">
+            <section onChange={(e) => { setmethod(e.target.value) } }>
+                <h4> method </h4>
                 <input type="radio" value="simple" name="method" /> simple
-                 <input type="radio" value="Advance" name="method" /> Advance
-               
+                <input type="radio" value="Advance" name="method" /> Advance
+
                 <br />
             </section>
-         
-          <div className="Mode">
-          
-            <br />
-            <MethodChecker/>
-            
+
+            <div className="Mode">
+
+                <br />
+                <MethodChecker />
+
             </div>
-            </div>
-        </>
+        </div>
+        </div>
     )
 }
 
