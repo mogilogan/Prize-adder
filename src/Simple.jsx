@@ -1,31 +1,8 @@
-
 import React, { useState } from 'react'
 import Advance_page from "./Advance"
 import DeleteIcon from '@material-ui/icons/Delete';
-import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import RemoveIcon from '@material-ui/icons/Remove';
-import Icon from '@material-ui/core/Icon';
-import { v4 as uuidv4 } from 'uuid';
-
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-      },
-    },
-    button: {
-      margin: theme.spacing(1),
-    }
-  }))
 
 const Simple = () => {
-    const classes = useStyles()
-
     const[ method , setmethod ] = useState("")
     
     const[ Showrank , setshowrank ]=useState(false)
@@ -64,40 +41,6 @@ const Simple = () => {
 
     const Simple =()=>{
         const [mode , setmode] = useState("")
-
-        const [inputFields, setInputFields] = useState([
-            { id: uuidv4(), rank: '', prize: '' },
-          ]);
-        
-          const handleSubmit = (e) => {
-            e.preventDefault();
-            setprintdata((olditem)=>{
-            return[...olditem,inputFields]
-            })
-          };
-        
-          const handleChangeInput = (id, event) => {
-            const newInputFields = inputFields.map(i => {
-              if(id === i.id) {
-                i[event.target.name] = event.target.value
-              }
-              return i;
-            })
-            
-            setInputFields(newInputFields);
-          }
-        
-          const handleAddFields = () => {
-            setInputFields([...inputFields, { id: uuidv4(),  firstName: '', lastName: '' }])
-          }
-        
-          const handleRemoveFields = id => {
-            const values  = [...inputFields];
-            values.splice(values.findIndex(value => value.id === id), 1);
-            setInputFields(values);
-          }
-
-       
         
         const eventHandle = (e)=>{
             const value = e.target.value;
@@ -171,43 +114,13 @@ const Simple = () => {
                 <input type="radio" value="Duo" name="mode" /> Duo
                 <input type="radio" value="solo" name="mode" /> solo
                 <br />
-            </section><br /><label htmlFor=""> Add Rank & Prize Amount </label><br /><button className="Add_Rank" onClick={handleAddFields }> Add Rank </button><button className="Add_Range" onClick={() => { setshowrange(s => !s) } }> Add Range </button><br /><br />
+            </section><br /><label htmlFor=""> Add Rank & Prize Amount </label><br /><button className="Add_Rank" onClick={() => { setshowrank(s => !s) } }> Add Rank </button><button className="Add_Range" onClick={() => { setshowrange(s => !s) } }> Add Range </button><br /><br />
       {/* rank ka section */}
-        <div >
-        <Container>
-      <form onSubmit={handleSubmit}>
-        { inputFields.map(inputField => (
-          <div key={inputField.id}>
-            <TextField
-              name="firstName"
-              label="Rank"
-              variant="filled"
-              value={inputField.rank}
-              onChange={event => handleChangeInput(inputField.id, event)}
-            />
-            &nbsp;&nbsp;
-            <TextField
-              name="lastName"
-              label="Prize"
-              variant="filled"
-              value={inputField.prize}
-              onChange={event => handleChangeInput(inputField.id, event)}
-            />
-            <IconButton disabled={inputFields.length === 1} onClick={() => handleRemoveFields(inputField.id)}>
-              <RemoveIcon />
-            </IconButton>
-          </div>
-        )) }
-        <Button
-        
-          variant="contained" 
-          color="primary" 
-          type="submit" 
-          endIcon={<Icon></Icon>}
-          onClick={handleSubmit}
-        >Submit</Button>
-      </form>
-    </Container>
+        <div style={{display: Showrank ? 'block' :"none"}} >
+            <input type="text" placeholder="enter your rank" name="rank" value = {data.rank} onChange={eventHandle}/>
+            <input type="text" placeholder ="enter the amount" name="prize" value={data.prize} onChange={eventHandle}/>
+            <button onClick={sendData}> +</button>
+            <br />
             </div>
             {/* *************************range ka secrtion***************************** */}
             <div style={ {display:showrange? "block ":"none" }} >
@@ -221,13 +134,13 @@ const Simple = () => {
                      </div>
                      {/* map method in rank */}
             {
-                printdata.map((inputField , index)=>{
+                printdata.map((ele , index)=>{
                         return (
                             
-                          <div className="mainrank" key={index}>
-                         <div className="rank">   <p>Rank : {inputField.rank} </p>  </div>
-                           <div className="prize"> <p> prize:{inputField.prize} </p></div>
-                           <div className="inr"> <p>inr :{inputField.prize*2}</p>   </div>
+                          <div className="mainrank" key = {index}>
+                         <div className="rank">   <p>Rank : {ele.rank} </p>  </div>
+                           <div className="prize"> <p> prize:{ele.prize}  </p></div>
+                           <div className="inr"> <p>inr :{ele.prize*2}</p>   </div>
                            <button onClick={()=>{deleteItem(index)}} > <DeleteIcon fontSize="small" /></button>
                           </div>
                        
