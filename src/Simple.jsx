@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Advance_page from "./Advance"
 import DeleteIcon from '@material-ui/icons/Delete';
+import AddIcon from '@material-ui/icons/Add';
 import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -26,6 +27,8 @@ const Simple = () => {
     const classes = useStyles()
 
     const[ method , setmethod ] = useState("")
+    const[ showrank , setshowrank ]=useState(false)
+    const [showrange  , setshowrange] = useState(false)
 
     const MethodChecker = () =>{
         if( method==="Advance"){
@@ -47,7 +50,7 @@ const Simple = () => {
 
     const Simple =()=>{
         const [mode , setmode] = useState("")
-
+/* rank */
         const [inputFields, setInputFields] = useState([
             { id: uuidv4(), rank: '', prize: '' },
           ]);
@@ -77,13 +80,18 @@ const Simple = () => {
             values.splice(values.findIndex(value => value.id === id), 1);
             setInputFields(values);
           }
-          const [rangeFields , setRangefields ]=useState({
+          function Showrank(){
+            document.getElementById('showrank')
+          }
+/*Range*/
+
+          const [rangeFields , setRangefields ]=useState([{
             id: uuidv4(),
             rangeto:"",
             rangefrom:"",
             prize:""
     
-        })
+        }])
         
         const handlerSubmit = (e) => {
             e.preventDefault();
@@ -118,9 +126,9 @@ const Simple = () => {
                 <input type="radio" value="Duo" name="mode" /> Duo
                 <input type="radio" value="solo" name="mode" /> solo
                 <br />
-            </section><br /><label htmlFor=""> Add Rank & Prize Amount </label><br /><button className="Add_Rank" onClick={handleAddFields }> Add Rank </button><button className="Add_Range" onClick={handlerAddFields}> Add Range </button><br /><br />
+            </section><br /><label htmlFor=""> Add Rank & Prize Amount </label><br /><button className="Add_Rank" onClick={() => { setshowrank(s => !s) }}> Add Rank </button><button className="Add_Range" onClick={() => { setshowrange(s => !s) }}> Add Range </button><br /><br />
       {/* rank ka section */}
-        <div >
+        <div style={{display: showrank ? 'block' :"none"}} >
         <Container>
       <form onSubmit={handleSubmit}>
         { inputFields.map(inputField => (
@@ -128,6 +136,11 @@ const Simple = () => {
             <TextField name="rank"label="Rank"variant="filled"value={inputField.rank}onChange={event => handleChangeInput(inputField.id, event)}/>
             &nbsp;&nbsp;
             <TextField name="prize"label="Prize"variant="filled"value={inputField.prize}onChange={event => handleChangeInput(inputField.id, event)}/>
+            <IconButton
+              onClick={handleAddFields}
+            >
+              <AddIcon />
+            </IconButton>
             <IconButton disabled={inputFields.length === 1} onClick={() => handleRemoveFields(inputField.id)}>
               <RemoveIcon />
             </IconButton>
@@ -140,7 +153,7 @@ const Simple = () => {
 
             {/* *************************range ka secrtion***************************** */}
             
-            <div >
+            <div style={ {display: showrange ? "block ":"none" }}>
             <Container>
       <form onSubmit={handlerSubmit}>
         { rangeFields.map(rangeField => (
@@ -149,6 +162,11 @@ const Simple = () => {
             &nbsp;&nbsp;
             <TextField name="rangefrom"label="Rangefrom"variant="filled"value={rangeField.rangefrom}onChange={event => handlerChangeInput(rangeField.id, event)}/>
              <TextField name="prize"label="Prize"variant="filled"value={rangeField.prize}onChange={event => handlerChangeInput(rangeField.id, event)}/>
+             <IconButton
+              onClick={handlerAddFields}
+            >
+              <AddIcon />
+            </IconButton>
             <IconButton disabled={rangeFields.length === 1} onClick={() => handlerRemoveFields(rangeField.id)}>
               <RemoveIcon />
             </IconButton>
@@ -157,7 +175,7 @@ const Simple = () => {
         <Button variant="contained"  color="primary"  type="submit" endIcon={<Icon></Icon>} >Submit</Button>
       </form>
     </Container>
-                     </div>
+     </div>
                      {/* map method in rank */}
             {/*
                 printdata.map((inputField , index)=>{
@@ -174,12 +192,6 @@ const Simple = () => {
                         )
                 })
             */ }
-
-        
-      
-    
-
-           
             {/*
                  printrange.map((ele , index)=>{
                     return (
