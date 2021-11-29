@@ -23,8 +23,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-
-
 const Advance = () => {
     // for card
     const[ mvp  , setmvp ] = useState(false)
