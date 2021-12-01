@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 
-
-
 const Advance = () => {
     // for card
     const[ mvp  , setmvp ] = useState(false)
@@ -303,8 +301,6 @@ const Advance = () => {
             </div>
         </div>
         <br />
-        
-        
         
         </div>
     )
