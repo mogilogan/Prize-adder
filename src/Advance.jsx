@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
 import DeleteIcon from '@material-ui/icons/Delete';
 import AddIcon from '@material-ui/icons/Add';
 import Container from '@material-ui/core/Container';
@@ -9,9 +10,9 @@ import IconButton from '@material-ui/core/IconButton';
 import RemoveIcon from '@material-ui/icons/Remove';
 import Icon from '@material-ui/core/Icon';
 import { v4 as uuidv4 } from 'uuid';
-import {Row, Col } from 'react-grid-system';
+import {Row, Col} from 'react-grid-system';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from'@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -199,6 +200,7 @@ const handlerAddFields = () => {
                        <button onClick={()=>{deleteItem(index)}} > <i class="zmdi zmdi-delete"></i></button>
                       </div>
                    </>
+
                     )
             })
           */}
@@ -222,6 +224,7 @@ const handlerAddFields = () => {
                    
                   </div>
                </>
+
                 )
         })
       */}
@@ -229,128 +232,90 @@ const handlerAddFields = () => {
         {/* advance page */}
         
         <div className="mainAdv">
-         <Row>
-            <Col sm={3} md={6} lg={9}>
-           < input type="CheckBox"   onClick= {()=>{setmvp(s => !s)}}onClick= {()=>{setmvp(s => !s)}} />
-           </Col>
-           <Col sm={3} md={6} lg={9}>
-            <p >MVP</p>
-            </Col>
-            <Col sm={4}>
-            
-          <div  style={ {display:mvp? "block ":"none" }}>
-          <Row>
-          <Col sm={4}>
-          <input type="text" placeholder="Numder of Prizes" />
-          </Col>
-          <Col sm={4}>
-          <input type="text" placeholder="prize amount" />
-          </Col>
-           
-             {/* radio btn section*/}
-           <Col sm={9}>
-                  <input type="radio" value="minimum" onChange={eventHandle3} name="mvp"/> <label htmlFor=""> Minimum</label>
-                  </Col>
-                  <Col sm={9}>
-                  <input type="radio" name="mvp" onChange={eventHandle3} value="range" /> <label>range</label>
-               
-              </Col>
-               
-        
-              </Row>
-            </div>
-           
-            </Col>
+          
+          
+         <Card >
+         <CardContent style={{backgroundColor: "#deebff"}}>
+
+            <Row>
+              <Col> < input type="CheckBox"   onClick= {()=>{setmvp(s => !s)}}onClick= {()=>{setmvp(s => !s)}} /></Col>
+              <Col><p>MVP</p></Col>
+              <Col><input type="text" style={ {display:mvp? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
+              <Col> <input type="text" style={ {display:mvp? "block ":"none" }} placeholder="prize amount" /> </Col>
+                {/* radio btn section*/}
+              <Col><input type="radio"  onChange={eventHandle3} style={ {display:mvp? "block ":"none" }} value="minimum"  name="mvp"/><label style={ {display:mvp? "block ":"none" }} htmlFor=""> Minimum</label></Col>
+              <Col><input type="radio" onChange={eventHandle3} style={ {display:mvp? "block ":"none" }} name="mvp" value="range"  /> <label style={ {display:mvp? "block ":"none" }}>range</label></Col>
             </Row>
-            <div className="mvp">
-           < input type="CheckBox"   onClick= {()=>{setA_kill(s => !s)}}/>
-            <p>Top_Assaulter(kills)</p>
-            <div  style={ {display:A_kill? "block ":"none" }}>
-          <input type="text" placeholder="Numder of Prizes" />
-            <input type="text" placeholder="prize amount" />
           
-             {/* radio btn section*/}
-               
-                  <input type="radio"  onChange={eventHandle3} name="top_assaulter_kill" value="minimum"/> <label htmlFor=""> Minimum</label>
-            <input type="radio"  onChange={eventHandle3} name="top_assaulter_kill" value="range" /> <label>range</label>
-              
+      
+            <Row>
+              <Col><input type="CheckBox"   onClick= {()=>{setA_kill(s => !s)}}/></Col>
+              <Col><p>Top_Assaulter(kills)</p></Col>
+              <Col><input type="text" style={ {display:A_kill? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
+              <Col><input type="text" style={ {display:A_kill? "block ":"none" }} placeholder="prize amount" /></Col>
+                {/* radio btn section*/}
+              <Col><input onChange={eventHandle3} type="radio" style={ {display:A_kill? "block ":"none" }} name="top_assaulter_kill" value="minimum"/> <label style={ {display:A_kill? "block ":"none" }} htmlFor=""> Minimum</label></Col>
+              <Col><input onChange={eventHandle3} type="radio" style={ {display:A_kill? "block ":"none" }} name="top_assaulter_kill" value="range" /> <label style={ {display:A_kill? "block ":"none" }}>range</label></Col>
+            </Row>
            
-          </div>
-            </div>
-            <div className="mvp">
-           < input type="CheckBox"   onClick= {()=>{setA_damage(s => !s)}}/>
-            <p>Top Assaulter (Damage)</p>
-            <div  style={ {display:A_damage? "block ":"none" }}>
-          <input type="text" placeholder="Numder of Prizes" />
-            <input type="text" placeholder="prize amount" />
+
+
+           
+            <Row>
+              <Col>< input type="CheckBox"   onClick= {()=>{setA_damage(s => !s)}}/></Col>
+              <Col><p>Top_Assaulter(Damage)</p></Col>
+              <Col><input type="text" style={ {display:A_damage? "block ":"none" }} placeholder="Numder of Prizes" /></Col> 
+              <Col><input type="text" style={ {display:A_damage? "block ":"none" }} placeholder="prize amount" /></Col>
+                {/* radio btn section*/}
+              <Col><input onChange={eventHandle3} type="radio" style={ {display:A_damage? "block ":"none" }} name="top_assaulter_damage"  value="minimum"/> <label style={ {display:A_damage? "block ":"none" }} htmlFor=""> Minimum</label></Col>
+              <Col><input onChange={eventHandle3} type="radio" style={ {display:A_damage? "block ":"none" }} name="top_assaulter_damage" value="range" /> <label style={ {display:A_damage? "block ":"none" }}>range</label></Col>
+            </Row>
         
-             {/* radio btn section*/}
-               
-                  <input type="radio"  onChange={eventHandle3} name="top_assaulter_damage"  value="minimum"/> <label htmlFor=""> Minimum</label>
-            <input type="radio"  onChange={eventHandle3} name="top_assaulter_damage" value="range" /> <label>range</label>
-               
+
+            <Row>
+              <Col>< input type="CheckBox"   onClick= {()=>{setReviver(s => !s)}}/></Col>
+              <Col><p>Top_Reviver</p>   </Col>
+              <Col><input type="text" style={ {display:Reviver? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
+              <Col><input type="text" style={ {display:Reviver? "block ":"none" }} placeholder="prize amount" /></Col>
+                {/* radio btn section*/}
+              <Col><input onChange={eventHandle3} type="radio" style={ {display:Reviver? "block ":"none" }} name="top_reviver" value="minimum"/> <label style={ {display:Reviver? "block ":"none" }} htmlFor=""> Minimum</label></Col>
+              <Col><input onChange={eventHandle3} type="radio" style={ {display:Reviver? "block ":"none" }} name="top_reviver" value="range" /> <label style={ {display:Reviver? "block ":"none" }}>range</label></Col>
+            </Row>
           
-          </div>
-            </div>
-            <div className="mvp">
-           < input type="CheckBox"   onClick= {()=>{setReviver(s => !s)}}/>
-            <p>Top Reviver</p>
-            <div  style={ {display:Reviver? "block ":"none" }}>
-          <input type="text" placeholder="Numder of Prizes" />
-            <input type="text" placeholder="prize amount" />
-       
-             {/* radio btn section*/}
-              
-                  <input type="radio"  onChange={eventHandle3} name="top_reviver" value="minimum"/> <label htmlFor=""> Minimum</label>
-            <input type="radio"  onChange={eventHandle3} name="top_reviver" value="range" /> <label>range</label>
-               
-          
-          </div>
-            </div>
-            <div className="mvp">
-           < input type="CheckBox"   onClick= {()=>{setgreanadier(s => !s)}}/>
-            <p>Top Greanadier</p>
-            <div  style={ {display:greanadier? "block ":"none" }}>
-          <input type="text" placeholder="Numder of Prizes" />
-            <input type="text" placeholder="prize amount" />
-        
-             {/* radio btn section*/}
-               
-                  <input type="radio"  onChange={eventHandle3} name="top_greanadier" value="minimum"/> <label htmlFor=""> Minimum</label>
-            <input type="radio"  onChange={eventHandle3} name="top_greanadier" value="range" /> <label>range</label>
-               
-       
-          </div>
-            </div>
-            <div className="mvp">
-           < input type="CheckBox"   onClick= {()=>{setclutcher(s => !s)}}/>
-            <p>Top Clutcher</p>
-            <div  style={ {display:clutcher? "block ":"none" }}>
-          <input type="text" placeholder="Numder of Prizes" />
-            <input type="text" placeholder="prize amount" />
-       
-             {/* radio btn section*/}
-               
-                  <input type="radio"  onChange={eventHandle3} name="top_clutcher" value="minimum"/> <label htmlFor=""> Minimum</label>
-            <input type="radio"  onChange={eventHandle3} name="top_clutcher" value="range" /> <label>range</label>
-               
-        
-          </div>
-            </div>
-            <div className="mvp">
-           < input type="CheckBox"   onClick= {()=>{setsniper(s => !s)}}/>
-            <p>Top Sniper</p>
-            <div  style={ {display:sniper? "block ":"none" }}>
-          <input type="text" placeholder="Numder of Prizes" />
-            <input type="text" placeholder="prize amount" />
-         
-             {/* radio btn section*/}
-                  <input type="radio"  onChange={eventHandle3} name="top_sniper" value="minimum"/> <label htmlFor=""> Minimum</label>
-            <input type="radio"  onChange={eventHandle3} name="top_sniper" value="range" /> <label>range</label>
-     
-          </div>
-            </div>
+
+            <Row>
+              <Col>< input type="CheckBox"   onClick= {()=>{setgreanadier(s => !s)}}/></Col>
+              <Col><p>Top_Greanadier</p></Col>
+              <Col><input type="text" style={ {display:greanadier? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
+              <Col><input type="text" style={ {display:greanadier? "block ":"none" }} placeholder="prize amount" /></Col>
+                {/* radio btn section*/}
+              <Col><input onChange={eventHandle3} type="radio" style={ {display:greanadier? "block ":"none" }} name="top_greanadier" value="minimum"/> <label style={ {display:greanadier? "block ":"none" }} htmlFor=""> Minimum</label></Col>
+              <Col><input onChange={eventHandle3} type="radio" style={ {display:greanadier? "block ":"none" }} name="top_greanadier" value="range" /> <label style={ {display:greanadier? "block ":"none" }}>range</label></Col>
+            </Row>
+      
+
+            <Row>
+              <Col>< input type="CheckBox"   onClick= {()=>{setclutcher(s => !s)}}/></Col>
+              <Col><p>Top_Clutcher</p></Col>
+              <Col><input type="text" style={ {display:clutcher? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
+              <Col><input type="text" style={ {display:clutcher? "block ":"none" }} placeholder="prize amount" /></Col>
+                {/* radio btn section*/}
+              <Col> <input onChange={eventHandle3} style={ {display:clutcher? "block ":"none" }} type="radio" name="top_clutcher" value="minimum"/> <label style={ {display:clutcher? "block ":"none" }} htmlFor=""> Minimum</label></Col>
+              <Col><input onChange={eventHandle3} style={ {display:clutcher? "block ":"none" }} type="radio" name="top_clutcher" value="range" /> <label style={ {display:clutcher? "block ":"none" }}>range</label></Col>
+            </Row>
             
+            <Row>
+              <Col>< input type="CheckBox"   onClick= {()=>{setsniper(s => !s)}}/> </Col>
+              <Col><p>Top_Sniper</p> </Col>
+              <Col><input type="text" style={ {display:sniper? "block ":"none" }} placeholder="Numder of Prizes" /> </Col>
+              <Col><input type="text" style={ {display:sniper? "block ":"none" }} placeholder="prize amount" /> </Col>
+                 {/* radio btn section*/}
+              <Col><input type="radio" style={ {display:sniper? "block ":"none" }} name="top_sniper" value="minimum"/> <label style={ {display:sniper? "block ":"none" }} htmlFor=""> Minimum</label> </Col>
+              <Col><input type="radio" style={ {display:sniper? "block ":"none" }} name="top_sniper" value="range" /> <label style={ {display:sniper? "block ":"none" }}>range</label> </Col>
+            </Row>
+            </CardContent >
+        </Card>
+
         </div>
         <br />
         
@@ -359,6 +324,4 @@ const handlerAddFields = () => {
         </>
     )
 }
-
-
 export default Advance
