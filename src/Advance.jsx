@@ -120,15 +120,7 @@ const handlerAddFields = () => {
     values.splice(values.findIndex(value => value.id === id), 1);
     setRangefields(values);
   }
-
-   
-
-
-
-
-     
-
-                  
+ 
 
     return (
         <>
@@ -238,7 +230,7 @@ const handlerAddFields = () => {
          <CardContent style={{backgroundColor: "#deebff"}}>
 
             <Row>
-              <Col> < input type="CheckBox"   onClick= {()=>{setmvp(s => !s)}}onClick= {()=>{setmvp(s => !s)}} /></Col>
+              <Col> < input type="CheckBox" class="double"   onClick= {()=>{setmvp(s => !s)}}onClick= {()=>{setmvp(s => !s)}} /></Col>
               <Col><p>MVP</p></Col>
               <Col><input type="text" style={ {display:mvp? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
               <Col> <input type="text" style={ {display:mvp? "block ":"none" }} placeholder="prize amount" /> </Col>
@@ -249,7 +241,7 @@ const handlerAddFields = () => {
           
       
             <Row>
-              <Col><input type="CheckBox"   onClick= {()=>{setA_kill(s => !s)}}/></Col>
+              <Col><input type="CheckBox" class="double"   onClick= {()=>{setA_kill(s => !s)}}/></Col>
               <Col><p>Top_Assaulter(kills)</p></Col>
               <Col><input type="text" style={ {display:A_kill? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
               <Col><input type="text" style={ {display:A_kill? "block ":"none" }} placeholder="prize amount" /></Col>
@@ -262,7 +254,7 @@ const handlerAddFields = () => {
 
            
             <Row>
-              <Col>< input type="CheckBox"   onClick= {()=>{setA_damage(s => !s)}}/></Col>
+              <Col>< input type="CheckBox" class="double"   onClick= {()=>{setA_damage(s => !s)}}/></Col>
               <Col><p>Top_Assaulter(Damage)</p></Col>
               <Col><input type="text" style={ {display:A_damage? "block ":"none" }} placeholder="Numder of Prizes" /></Col> 
               <Col><input type="text" style={ {display:A_damage? "block ":"none" }} placeholder="prize amount" /></Col>
@@ -273,7 +265,7 @@ const handlerAddFields = () => {
         
 
             <Row>
-              <Col>< input type="CheckBox"   onClick= {()=>{setReviver(s => !s)}}/></Col>
+              <Col>< input type="CheckBox" class="double"   onClick= {()=>{setReviver(s => !s)}}/></Col>
               <Col><p>Top_Reviver</p>   </Col>
               <Col><input type="text" style={ {display:Reviver? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
               <Col><input type="text" style={ {display:Reviver? "block ":"none" }} placeholder="prize amount" /></Col>
@@ -284,7 +276,7 @@ const handlerAddFields = () => {
           
 
             <Row>
-              <Col>< input type="CheckBox"   onClick= {()=>{setgreanadier(s => !s)}}/></Col>
+              <Col>< input type="CheckBox" class="double"   onClick= {()=>{setgreanadier(s => !s)}}/></Col>
               <Col><p>Top_Greanadier</p></Col>
               <Col><input type="text" style={ {display:greanadier? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
               <Col><input type="text" style={ {display:greanadier? "block ":"none" }} placeholder="prize amount" /></Col>
@@ -295,7 +287,7 @@ const handlerAddFields = () => {
       
 
             <Row>
-              <Col>< input type="CheckBox"   onClick= {()=>{setclutcher(s => !s)}}/></Col>
+              <Col>< input type="CheckBox" class="double"  onClick= {()=>{setclutcher(s => !s)}}/></Col>
               <Col><p>Top_Clutcher</p></Col>
               <Col><input type="text" style={ {display:clutcher? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
               <Col><input type="text" style={ {display:clutcher? "block ":"none" }} placeholder="prize amount" /></Col>
@@ -305,7 +297,7 @@ const handlerAddFields = () => {
             </Row>
             
             <Row>
-              <Col>< input type="CheckBox"   onClick= {()=>{setsniper(s => !s)}}/> </Col>
+              <Col>< input type="CheckBox" class="double"   onClick= {()=>{setsniper(s => !s)}}/> </Col>
               <Col><p>Top_Sniper</p> </Col>
               <Col><input type="text" style={ {display:sniper? "block ":"none" }} placeholder="Numder of Prizes" /> </Col>
               <Col><input type="text" style={ {display:sniper? "block ":"none" }} placeholder="prize amount" /> </Col>
