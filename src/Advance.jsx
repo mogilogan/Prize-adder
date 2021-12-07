@@ -27,7 +27,11 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(1),
-  }
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 100,
+  },
 }))
 
 const Advance = () => {
@@ -42,6 +46,8 @@ const Advance = () => {
     
     const[ showrank , setshowrank ]=useState(false)
     const [showrange  , setshowrange] = useState(false)
+
+    const classes = useStyles()
   
     
     const [mode , setmode] = useState("")
@@ -244,22 +250,23 @@ const handlerAddFields = () => {
         {/* advance page */}
         
         <div className="mainAdv">
-          
+         
           
          <Card >
          <CardContent style={{backgroundColor: "#deebff"}}>
 
             <Row>
-              <Col> < input type="CheckBox" class="double"   onClick= {()=>{setmvp(s => !s)}}onClick= {()=>{setmvp(s => !s)}} /></Col>
-              <Col><p>MVP</p></Col>
-              <Col><input type="text" style={ {display:mvp? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
-              <Col> <input type="text" style={ {display:mvp? "block ":"none" }} placeholder="prize amount" /> </Col>
+              <Col xs={0.5}> < input type="CheckBox" class="double"   onClick= {()=>{setmvp(s => !s)}}onClick= {()=>{setmvp(s => !s)}} /></Col>
+              <Col ><p>MVP</p></Col>
+              <Col ><input type="text" style={ {display:mvp? "block ":"none" }} placeholder="Numder of Prizes" /></Col>
+              <Col > <input type="text" style={ {display:mvp? "block ":"none" }} placeholder="prize amount" /> </Col>
                 {/* radio btn section*/}
               <Col><input type="radio"  onChange={eventHandle3} style={ {display:mvp? "block ":"none" }} value="minimum"  name="mvp"/><label style={ {display:mvp? "block ":"none" }} htmlFor=""> Minimum</label></Col>
               <Col><input type="radio" onChange={eventHandle3} style={ {display:mvp? "block ":"none" }} name="mvp" value="range"  /> <label style={ {display:mvp? "block ":"none" }}>range</label></Col>
               <Col>
-              <FormControl>
-                <Select labelId='select-demo' id='select' value={value} style={ {display:mvp? "block ":"none" }} Value="tiebreaker" onchange={handleChange}>
+              <FormControl  className={classes.formControl}>
+              <InputLabel style={ {display:mvp? "block ":"none" }} id="demo-controlled-open-select-label">Tie Breaker</InputLabel>
+                <Select labelId="demo-controlled-open-select-label" id='select' value={value} style={ {display:mvp? "block ":"none" }} Value="tiebreaker" onchange={handleChange}>
                   <MenuItem value={'Condition 1'}>Condition 1</MenuItem>
                   <MenuItem value={'Condition 2'}>Condition 2</MenuItem>
                   <MenuItem value={'Condition 3'}>Condition 3</MenuItem>
@@ -280,8 +287,9 @@ const handlerAddFields = () => {
               <Col><input onChange={eventHandle3} type="radio" style={ {display:A_kill? "block ":"none" }} name="top_assaulter_kill" value="minimum"/> <label style={ {display:A_kill? "block ":"none" }} htmlFor=""> Minimum</label></Col>
               <Col><input onChange={eventHandle3} type="radio" style={ {display:A_kill? "block ":"none" }} name="top_assaulter_kill" value="range" /> <label style={ {display:A_kill? "block ":"none" }}>range</label></Col>
               <Col>
-              <FormControl>
-                <Select labelId='select-demo' id='select' value={value} style={ {display:A_kill? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
+              <FormControl className={classes.formControl}>
+              <InputLabel style={ {display:A_kill? "block ":"none" }} id="demo-controlled-open-select-label">Tie Breaker</InputLabel>
+                <Select labelId='demo-controlled-open-select-label' id='select' value={value} style={ {display:A_kill? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
                   <MenuItem value={'Condition 1'}>Condition 1</MenuItem>
                   <MenuItem value={'Condition 2'}>Condition 2</MenuItem>
                   <MenuItem value={'Condition 3'}>Condition 3</MenuItem>
@@ -304,8 +312,9 @@ const handlerAddFields = () => {
               <Col><input onChange={eventHandle3} type="radio" style={ {display:A_damage? "block ":"none" }} name="top_assaulter_damage"  value="minimum"/> <label style={ {display:A_damage? "block ":"none" }} htmlFor=""> Minimum</label></Col>
               <Col><input onChange={eventHandle3} type="radio" style={ {display:A_damage? "block ":"none" }} name="top_assaulter_damage" value="range" /> <label style={ {display:A_damage? "block ":"none" }}>range</label></Col>
               <Col>
-              <FormControl>
-                <Select labelId='select-demo' id='select' value={value} style={ {display:A_damage? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
+              <FormControl className={classes.formControl}>
+              <InputLabel style={ {display:A_damage? "block ":"none" }} id="demo-controlled-open-select-label">Tie Breaker</InputLabel>
+                <Select labelId='demo-controlled-open-select-label' id='select' value={value} style={ {display:A_damage? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
                   <MenuItem value={'Condition 1'}>Condition 1</MenuItem>
                   <MenuItem value={'Condition 2'}>Condition 2</MenuItem>
                   <MenuItem value={'Condition 3'}>Condition 3</MenuItem>
@@ -326,8 +335,9 @@ const handlerAddFields = () => {
               <Col><input onChange={eventHandle3} type="radio" style={ {display:Reviver? "block ":"none" }} name="top_reviver" value="minimum"/> <label style={ {display:Reviver? "block ":"none" }} htmlFor=""> Minimum</label></Col>
               <Col><input onChange={eventHandle3} type="radio" style={ {display:Reviver? "block ":"none" }} name="top_reviver" value="range" /> <label style={ {display:Reviver? "block ":"none" }}>range</label></Col>
               <Col>
-              <FormControl>
-                <Select labelId='select-demo' id='select' value={value} style={ {display:Reviver? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
+              <FormControl className={classes.formControl}>
+              <InputLabel style={ {display:Reviver? "block ":"none" }} id="demo-controlled-open-select-label">Tie Breaker</InputLabel>
+                <Select labelId='demo-controlled-open-select-label' id='select' value={value} style={ {display:Reviver? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
                   <MenuItem value={'Condition 1'}>Condition 1</MenuItem>
                   <MenuItem value={'Condition 2'}>Condition 2</MenuItem>
                   <MenuItem value={'Condition 3'}>Condition 3</MenuItem>
@@ -348,8 +358,9 @@ const handlerAddFields = () => {
               <Col><input onChange={eventHandle3} type="radio" style={ {display:greanadier? "block ":"none" }} name="top_greanadier" value="minimum"/> <label style={ {display:greanadier? "block ":"none" }} htmlFor=""> Minimum</label></Col>
               <Col><input onChange={eventHandle3} type="radio" style={ {display:greanadier? "block ":"none" }} name="top_greanadier" value="range" /> <label style={ {display:greanadier? "block ":"none" }}>range</label></Col>
               <Col>
-              <FormControl>
-                <Select labelId='select-demo' id='select' value={value} style={ {display:greanadier? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
+              <FormControl className={classes.formControl}>
+              <InputLabel style={ {display:greanadier? "block ":"none" }} id="demo-controlled-open-select-label">Tie Breaker</InputLabel>
+                <Select labelId='demo-controlled-open-select-label' id='select' value={value} style={ {display:greanadier? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
                   <MenuItem value={'Condition 1'}>Condition 1</MenuItem>
                   <MenuItem value={'Condition 2'}>Condition 2</MenuItem>
                   <MenuItem value={'Condition 3'}>Condition 3</MenuItem>
@@ -370,8 +381,9 @@ const handlerAddFields = () => {
               <Col> <input onChange={eventHandle3} style={ {display:clutcher? "block ":"none" }} type="radio" name="top_clutcher" value="minimum"/> <label style={ {display:clutcher? "block ":"none" }} htmlFor=""> Minimum</label></Col>
               <Col><input onChange={eventHandle3} style={ {display:clutcher? "block ":"none" }} type="radio" name="top_clutcher" value="range" /> <label style={ {display:clutcher? "block ":"none" }}>range</label></Col>
               <Col>
-              <FormControl>
-                <Select labelId='select-demo' id='select' value={value} style={ {display:clutcher? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
+              <FormControl className={classes.formControl}>
+              <InputLabel style={ {display:clutcher? "block ":"none" }} id="demo-controlled-open-select-label">Tie Breaker</InputLabel>
+                <Select labelId='demo-controlled-open-select-label' id='select' value={value} style={ {display:clutcher? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
                   <MenuItem value={'Condition 1'}>Condition 1</MenuItem>
                   <MenuItem value={'Condition 2'}>Condition 2</MenuItem>
                   <MenuItem value={'Condition 3'}>Condition 3</MenuItem>
@@ -391,8 +403,9 @@ const handlerAddFields = () => {
               <Col><input type="radio" style={ {display:sniper? "block ":"none" }} name="top_sniper" value="minimum"/> <label style={ {display:sniper? "block ":"none" }} htmlFor=""> Minimum</label> </Col>
               <Col><input type="radio" style={ {display:sniper? "block ":"none" }} name="top_sniper" value="range" /> <label style={ {display:sniper? "block ":"none" }}>range</label> </Col>
               <Col>
-              <FormControl>
-                <Select labelId='select-demo' id='select' value={value} style={ {display:sniper? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
+              <FormControl className={classes.formControl}>
+              <InputLabel style={ {display:sniper? "block ":"none" }} id="demo-controlled-open-select-label">Tie Breaker</InputLabel>
+                <Select labelId='demo-controlled-open-select-label' id='select' value={value} style={ {display:sniper? "block ":"none" }} label="Tiebreaker" onchange={handleChange}>
                   <MenuItem value={'Condition 1'}>Condition 1</MenuItem>
                   <MenuItem value={'Condition 2'}>Condition 2</MenuItem>
                   <MenuItem value={'Condition 3'}>Condition 3</MenuItem>
@@ -402,6 +415,7 @@ const handlerAddFields = () => {
               </FormControl>
               </Col>
             </Row>
+         
             </CardContent >
         </Card>
 
